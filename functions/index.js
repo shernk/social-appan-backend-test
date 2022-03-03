@@ -4,6 +4,9 @@ const fbAuth = require("./util/fbAuth");
 const express = require("express");
 const app = express();
 
+// deploy
+app.use(express.static("public"));
+
 const cors = require("cors");
 app.use(cors());
 
@@ -16,9 +19,6 @@ app.use((req, res, next) => {
 
 // upload image
 app.set("view engine", "ejs");
-
-// deploy
-app.use(express.static("public"));
 
 // firebase
 const firebaseConfig = require("./config");
